@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Artiste
+{% endblock %}
+
+{% block body %}
+	<div class="text-center">
+		<h2>Créer un nouvel artiste</h2>
+		<a class="btn btn-warning" style="margin:20px;" href="{{ path('admin_artiste_index') }}">Retour à la liste</a>
+	</div>
+
+
+	<style>
+		p {
+			margin: 0;
+		}
+		.descInput {
+			width: 90%;
+			height: 100%;
+		}
+
+		.borderform {
+			border: solid white 1px;
+		}
+	</style>
+
+
+	{{ form_start(form) }}
+	<article style="width: 50%; height:600px; margin:auto;" class="borderform">
+		<section class="borderform">
+			<div style="text-align:center;  padding:10px 0px">
+
+				<img style="height: auto; width: 200px;" src="{{asset('img/'~'200x200.gif')}}" class="card-img-top" alt="...">
+				<br>
+				<hr>
+				{{ form_widget(form.image) }}
+			</div>
+		</section>
+
+		<section class="borderform">
+			<div class="d-flex justify-content-evenly" style="padding-top:10px;">
+				<p>{{ form_label(form.nom, 'Nom:') }}
+					{{ form_widget(form.nom) }}</p>
+				<p>{{ form_label(form.prenom, 'Prénom:') }}
+					{{ form_widget(form.prenom) }}</p>
+				<p>{{ form_label(form.genre, 'Genre:') }}
+					{{ form_widget(form.genre) }}</p>
+			</div>
+		</sectionclass="borderform">
+
+		<section style="height:200px;" class="borderform">
+			<div style="text-align:center;  height:100%;">
+				<p>{{ form_label(form.description, 'Description:') }}</p>
+				<p style="height:145px; padding:5px;">{{ form_widget(form.description, {"attr":{'class':'descInput'}}) }}</p>
+			</div>
+		</section>
+
+		<section>
+
+			<div class="d-flex justify-content-center">
+				<button class="btn btn-warning" style="margin: 15px 5px;">{{ button_label|default('Créer') }}</button>
+			</div>
+
+		</section>
+
+	</article>
+	{{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre page profil
+{% endblock %}
+
+{% block body %}
+
+<style>
+
+    #profilebloc {
+
+        height: 550px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #divprofile {
+        border: white 1px dashed;
+        height: 550px;
+        width: 500px;
+        margin: auto;
+        text-align: center;
+    }
+    .formleft{
+        text-align: left;   
+    }
+
+    .updateInput{
+        width:100%;
+    }
+
+</style>
+
+<section id="profilebloc">
+
+    <div id="divprofile">
+        <div>
+            <label>Photo de profil</label>
+            <br>
+            <img style="height:200px; width: auto;" src="{{asset('upload/'~app.user.profilePicture)}}">
+            <tr>
+                <p>{{ app.user.email }}</p>
+            </tr>
+        </div>
+<small>Pour des raisons de sécurité vos changements seront pris en compte si vous avez renseigner le bon mot de passe</small>
+
+        {{ form_start(profilForm) }}
+        <div style="height: 150px;">
+            <table style="margin: auto; width: 100%;">
+                <tbody>
+                    <tr> 
+                        <td>{{ form_label(profilForm.username, 'Pseudo') }}</td>
+                        <td class="formleft">{{ form_widget(profilForm.username, {"attr":{'class':'updateInput'}}) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_label(profilForm.plainPassword, 'Mot de passe actuel') }}</td>   
+                        <td class="formleft">{{ form_widget(profilForm.plainPassword, {"attr":{'class':'updateInput'}}) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_label(profilForm.newPassword, 'Nouveau mot de passe') }}</td>
+                        <td class="formleft">{{ form_widget(profilForm.newPassword, {"attr":{'class':'updateInput'}}) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_label(profilForm.profile_picture) }}</td>
+                        <td>{{ form_widget(profilForm.profile_picture, {label: ''})}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-warning">Modifier les informations</button>
+        <br>
+        {{ form_end(profilForm) }}
+        
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

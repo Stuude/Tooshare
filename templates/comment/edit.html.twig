@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Comment
+{% endblock %}
+
+{% block body %}
+	<h2 style="text-align:center;">Modifier le commentaire:</h2>
+
+	{# 	{{ form_start(form)  }}
+				
+				
+					{{form_label(form.commentaire, "commentaire:",{"label_attr":{'class':'form-label'}})}}
+					{{ form_widget(form.commentaire, {"attr":{'class':'form-control','placeholder':''}})}}
+				
+					<button class="btn" type="submit">
+						ttata</button>
+					{{ form_end(form) }}
+				
+				
+					<a href="{{ path('comment_index') }}">back to list</a>
+				
+				
+					{{ include('comment/_delete_form.html.twig') }}
+				
+				
+				
+						<h2>Modifier le
+						</h2>
+				
+						{{ form_start(form)  }}
+				
+				
+						{{form_label(form.commentaire, "commentaire:",{"label_attr":{'class':'form-label'}})}}
+						{{ form_widget(form.commentaire, {"attr":{'class':'form-control','placeholder':'TEST'}})}}
+				
+						<button class="btn">{{ button_label|default('Save') }}</button>
+						{{ form_end(form) }}
+				
+				
+						<a href="{{ path('comment_index') }}">back to list</a>
+				
+						{{ include('comment/_delete_form.html.twig') }}
+						{{ form_start(form)  }} #}
+	<article style="display: flex; margin-top: 15px; background-color: #FFE083;">
+
+		<div style="padding: 5px; background-color: #FFD559;">
+			<img style="height:150px; width:150; background-color: white;" src="{{asset('upload/'~app.user.profilePicture)}}">
+		</div>
+
+		<div style="width: 100%; margin: 5px;">
+			<div style="display: flex; justify-content: space-between; padding: 5px; background-color: #ffc107;">
+				<p>Le commentaire a été posté dans la page de:
+					{{ comment.artiste.nom }}
+				</p>
+				<p>Le
+					{{ comment.createdAt|date("d/m/Y")}}</p>
+			</div>
+
+			<div style=" width: 100%; height: 60%; margin-top: 5px; padding: 5px; background-color: #ffd148;">
+				{{ form_start(form)  }}
+
+				<p>{{ form_widget(form.commentaire, {"attr":{'class':'form-control','placeholder':''}})}}
+				</p>
+
+
+			</div>
+
+		</article>
+		<button class="btn btn-warning" style="width: 90px; margin-bottom: 5px; margin-left: 160px; margin-top:5px;" type="submit">Modifier</button>
+		<a class="btn btn-warning" style="" href="{{ path('profil') }}">Retour au profil</a>
+
+		{{ form_end(form) }}
+
+	{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artiste index
+{% endblock %}
+
+{% block body %}
+	<div class="text-center">
+		<h2>
+			ESPACE ADMIN: ARTISTES
+		</h2>
+		<a class="btn btn-warning" style="margin:20px;" href="{{ path('admin_artiste_new') }}">Créer un nouvel article</a>
+	</div>
+
+	<section style="background-color: #0e0e0e;">
+		<div class="container" style="">
+			<div class="row border border-dark m-auto">
+				{% for artiste in artistes %}
+
+					<div class="text-dark col-sm m-auto">
+						<div class="" style="width: 18rem; height: 100%; margin-top: 10px; margin-bottom: 10px; border: 5px solid #fabd18;">
+							<div>
+								<img style="height: 300px; width: 100%; border:solid 1px black;" src="{{ asset('upload/'~artiste.image) }}" class="" alt="...">
+							</div>
+							<div class="card-body " style="text-align: center; background-color: #fabd18;">
+								<h5 class="card-title" style="padding: 10px;">
+									{{ artiste.nom }}</h5>
+								<p>{{ artiste.genre }}</p>
+								<a class="btn btn-warning text-light" style="margin-bottom: 10px; background-color:#FF9700;" href="{{ path('admin_artiste_show', {'id': artiste.id}) }}">Découvrir</a>
+							</div>
+						</div>
+					</div>
+
+
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

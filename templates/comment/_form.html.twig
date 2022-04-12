@@ -1,0 +1,8 @@
+{{ form_start(form,{"action":path('comment_new',{"id":artiste.id})})  }}
+
+
+{{form_label(form.commentaire, "Tous les commentaires:",{"label_attr":{'class':'form-label'}})}}
+{{ form_widget(form.commentaire, {"attr":{'class':'form-control','placeholder':'Écrivez votre commentaire'}})}}
+
+    <button class="btn btn-warning" style="margin-top:5px;">{{ button_label|default('Ajouter un commentaire') }}</button>
+{{ form_end(form) }}

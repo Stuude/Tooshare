@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light m-auto" id="nav" style="">
+	<a id="logotooshare" class="navbar-brand text-light" href="{{ path('home') }}" style"font-family: 'roboto', sans-serif; font-weight: 500; font-size: 20px;">T<span class="text-warning ">OO</span>SHARE</a>
+
+
+	<div
+		class="collapse navbar-collapse navnav" id="navbarNav">
+		{# <ul class="navbar-nav d-flex justify-content-between"> #}
+		<div class="d-flex m-auto navnav">
+			<a class="nav-link navbtn hvr-grow" href="{{ path('home') }}">Accueil</a>
+			<a class="nav-link navbtn hvr-grow" href="{{ path('artiste') }}">Artistes</a>
+			<a class="nav-link navbtn hvr-grow" href="{{ path('about') }}">A propos</a>
+			<a class="nav-link navbtn hvr-grow" href="{{ path('contact') }}">Contact</a>
+		</div>
+
+		{% if app.user %}
+
+
+			<div class="d-flex justify-content-between nav-item dropdown" style=" width:370px;">
+				{% if "ROLE_ADMIN" in app.user.roles %}
+					<a class="nav-link dropdown-toggle text-white bg-warning btnjaune" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Espace admin</a>
+					<div class="dropdown-menu bg-warning btnjaune" id="" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item text-white bg-warning btnjaune" href="{{ path('admin_artiste_index') }}">Espace Artiste</a>
+						<a class="dropdown-item text-white bg-warning btnjaune" href="{{ path('admin_contact_index') }}">Espace contact</a>
+						<a class="dropdown-item text-white bg-warning btnjaune" href="#">Something else here</a>
+					</div>
+				{% endif %}
+
+
+				<a class="nav-link bg-warning text-white btnjaune" href="{{ path('profil') }}" >Profil</a>
+				<a class="nav-link bg-warning text-white btnjaune" href="{{ path('app_logout') }}">Deconnexion</a>
+			</div>
+		{% else %}
+
+			<a class="nav-link text-white bg-warning btnjaune" style="margin-right:10px;" href="{{ path('app_login') }}">Se connecter</a>
+			<a class="nav-link text-white bg-warning btnjaune" href="{{ path('app_register') }}">S'inscrire</a>
+
+		{% endif %}
+
+		{# </ul> #}
+	</div>
+
+</nav>

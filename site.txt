@@ -1,0 +1,34 @@
+page accueil:
+
+slider/bootstrap
+img
+article artiste
+abonnements
+
+page contact:
+form
+pour etre ajouter dans le blog
+
+page abonnement:
+liste d'offres
+
+page a propos:
+texte
+img
+
+page liste:
+foreach artistes
+
+FAVORIS
+COMMENTAIRE	
+
+
+page connexion:
+form
+
+https://symfonycasts.com/screencast/symfony-forms/flash-messages
+
+
+IMPORTANT: INTEGRER LE PLUS DE CHOSES VUE EN COURS POSSIBLE.
+
+COMMENT FAIRE POUR LA NAVBAR ADMIN/USER

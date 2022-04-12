@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Contact
+{% endblock %}
+
+
+{% block body %}
+
+
+<style>
+
+.contactd{
+
+	padding: 10px;
+}
+
+</style>
+
+<p style="text-align: center;">Veuillez remplir ce formulaire pour nous contacter</p>
+
+<section style="margin-top: 50px; margin-bottom: 100px;">
+	<table style="margin: auto;">
+		<thead>
+			<tr>
+				<th colspan="2" style="text-align:center;">Formulaire de contact</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{form_start(form)}}
+			<tr>
+				<td>{{ form_label(form.nom) }}</td>
+				<td style="width:500px;" class="contactd">{{ form_widget(form.nom, {"attr":{'class':'form-control','placeholder':'Votre nom'}}) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.prenom) }}</td>
+				<td style="width:500px;" class="contactd">{{ form_widget(form.prenom, {"attr":{'class':'form-control','placeholder':'Votre prénom'}}) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.email) }}</td>
+				<td style="width:500px;" class="contactd">{{ form_widget(form.email, {"attr":{'class':'form-control','placeholder':'Votre email'}}) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.telephone) }}</td>
+				<td style="width:500px;"  class="contactd">{{ form_widget(form.telephone, {"attr":{'class':'form-control','placeholder':'Votre numéro de téléphone'}}) }}</td>
+				<td>{{ form_errors(form.telephone) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.objet) }}</td>
+				<td style="width:500px;"  class="contactd">{{ form_widget(form.objet, {"attr":{'class':'form-control','placeholder':'L\'objet de votre demande '}}) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.message) }}</td>
+				<td style="width:500px;"  class="contactd">{{ form_widget(form.message, {"attr":{'class':'form-control','placeholder':'Votre message (max 300 caractères)'}}) }}</td>
+			</tr>
+			<tr>
+				<td><input type="hidden"></td>
+				<td style="text-align: center;"  class="contactd"><input class="btn btn-warning" style="margin: 5px;" type="submit"></td>
+			</tr>
+				{{form_end(form)}}
+		</tbody>
+	</table>
+</section>
+
+
+{% endblock %}
+
+{# {{ form(form) }} #}
+
+{#{{ form_label(form.nom) }}
+{{ form_widget(form.nom) }}
+#}

@@ -1,0 +1,153 @@
+body{
+    background-color: #0e0e0e;
+    color: white;
+}
+/* FOOTER */
+
+footer {
+    padding-top: 50px;
+    background-color: #0e0e0e;
+    color: white;
+
+    width:100%;
+    
+
+}
+
+#frstfooterblock {
+    margin-bottom: 20px;
+}
+
+.footertitle {
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+
+}
+
+footer a {
+    color: white;
+    margin: auto;
+    text-align: left;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+
+footer hr {
+    color: white;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#copyright {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* NAVBAR */
+
+#nav {
+    background-color: #0e0e0e;
+}
+
+#logotooshare {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+}
+
+.navbtn {
+    color: white;
+    font-size: 20px;
+}
+
+.navbtn:hover {
+    border-bottom: solid white 1px;
+    color: white;
+
+}
+
+.btnjaune {
+    border-radius: 30px;
+}
+
+
+/* HVR GROW (pris d'internet) */
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* HEADER / HOMESECTION */
+
+#homesection {
+    height: 755px;
+    border: solid 1px #0e0e0e;
+    background-color: #0e0e0e;
+}
+
+#titlediv {
+    margin-top: 250px;
+}
+
+#doubleo {
+    color: #fabd18;
+}
+
+h1 {
+    text-align: center;
+    font-size: 150px;
+    color: white;
+}
+
+/* HOMESECTION2 */
+
+#homediscover {
+    width: 100%;
+}
+
+#homediscovertitle {
+    text-align: center;
+    background-color: #0e0e0e;
+}
+
+#discovertitle {
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 5px;
+
+}
+
+#hrtest {
+    color: white;
+    width: 30%;
+    margin: auto;
+    padding-bottom: 5px;
+
+}
+
+/* HOMENEWS */
+
+#news {
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<section id="homesection">
+
+	<div id="titlediv">
+
+		<h1>T<span id="doubleo">OO</span>SHARE</h1>
+
+	</div>
+
+</section>
+
+<section id="homediscover">
+
+	<div id="homediscovertitle">
+		<h2 id="discovertitle">Découvre de nouveaux artistes!</h2>
+		<hr id="hrtest">
+	</div>
+
+	<div style="display: flex; text-align: center;">
+		<div style="background-color: #0e0e0e;">
+			<p style="margin-top: 100px; color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+				labore hic in
+				ipsum quia libero, totam, ad
+				debitis error commodi necessitatibus inventore iusto illo voluptatem odit repellendus. Ducimus, quisquam
+				magnam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nesciunt, labore tempore
+				recusandae placeat amet praesentium, magnam sequi in beatae dolorem fuga dolore laborum ut aspernatur,
+				vero velit debitis adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore
+				rerum cum aspernatur quis consequatur corporis in harum, dolor molestiae repellat animi minus atque.
+				Laudantium unde officia harum doloremque repellendus.</p>
+		</div>
+
+		<div id="homediscoverphoto" style="background-color: #0e0e0e;">
+			<img src="{{asset('img/'~'imgHeader.png')}}">
+		</div>
+	</div>
+</section>
+
+<section id="news" style="background-color: #0e0e0e; width: 100%;">
+
+
+	{% for artiste in artistes %}
+
+	<div class="text-light">
+		<div class="width:300px; height:200px; border border-dark"
+			style="width: 18rem; height: 100%; margin-top: 10px; margin-bottom: 10px;">
+			<div>
+				<img style="height: 300px; width: 100%;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top"
+					alt="...">
+			</div>
+			<div class="" style="text-align: center;">
+				<h5 class="card-title" style="padding: 10px;">
+					{{ artiste.nom }}</h5>
+				<p>{{ artiste.genre }}</p>
+				<a class="btn btn-warning text-light" style="margin-bottom: 10px;"
+					href="{{ path('artiste_show', {'id': artiste.id}) }}">Découvrir</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+	<div style="width: 30%; text-align: center; margin-top: 10px; color: white;">
+		<h2 style="margin-top: 50px;">Les nouveautés</h2>
+		<p style="margin-top: 75px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque facere rerum et minus quae laborum assumenda
+			nostrum doloremque amet explicabo delectus consequatur illum a, numquam labore nesciunt maxime eaque! Iusto!
+		</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error iure mollitia neque, asperiores deleniti nisi
+			totam tempora sequi saepe? Repudiandae consectetur distinctio animi aut inventore, ex vitae ab minus
+			accusamus!</p>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

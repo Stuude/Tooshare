@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artiste
+{% endblock %}
+
+{% block body %}
+	<h1>Artiste</h1>
+
+	<section style="background-color: #0e0e0e; color: white;">
+
+
+		<section style="margin: 20px;">
+			<div style="text-align:center; border:black 1px solid;">
+				<h2>{{ artiste.nom }}
+					{{ artiste.prenom }}</h2>
+
+				<div>
+					<img style="height: auto; width: 200px;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top" alt="...">
+				</div>
+			</div>
+			<div>
+				<p>Genre:
+					{{ artiste.genre }}</p>
+
+				<p>DESCRIPTION:</p>
+				<p>{{ artiste.description }}</p>
+			</div>
+
+		</section>
+
+	</section>
+
+	<section class="d-flex justify-content-around w-50 m-auto align-items-center">
+
+		<a href="{{ path('admin_artiste_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+		<a href="{{ path('admin_artiste_edit', {'id': artiste.id}) }}" class="btn btn-warning">Modifier</a>
+
+		<form method="post" class="btn btn-warning" action="{{ path('admin_artiste_delete', {'id': artiste.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ artiste.id) }}">
+			<button style="background-color:#ffc107; border:none;">Supprimer cet article</button>
+		</form>
+	</section>
+
+
+
+{% endblock %}
