@@ -47,31 +47,15 @@ class ArtisteRepository extends ServiceEntityRepository
         ;
     }
     */
-    // Find/search articles by title/content
-    public function findArticlesByName(string $query)
-    {
-        $qb = $this->createQueryBuilder('p');
-        $qb
-            ->where(
-                $qb->expr()->andX(
-                    $qb->expr()->orX(
-                        $qb->expr()->like('p.title', ':query'),
-                        $qb->expr()->like('p.content', ':query'),
-                    ),
-                    $qb->expr()->isNotNull('p.created_at')
-                )
-            )
-            ->setParameter('query', '%' . $query . '%');
-        return $qb
-            ->getQuery()
-            ->getResult();
-    }
 
     public function findXLast($value)
     {
         return $this->createQueryBuilder('l')
+            // On trie par l'id le plus haut (pour avoir les articles/artistes les plus récents)
             ->orderBy('l.id', 'DESC')
+            // Cette ligne nous sert a pouvoir mettre un numéro pour définir le nombre d'articles qu'on veut
             ->setMaxResults($value)
+            // On utilise des méthodes du QueryBuilder pour faire la requête
             ->getQuery()
             ->getResult();
     }

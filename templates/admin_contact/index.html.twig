@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact index
+{% block title %}Espace Admin Contact
 {% endblock %}
 
+
 {% block body %}
-<h2 style="text-align:center;">Contact index</h1>
+	<h2 style="text-align:center;">Liste des formulaires de contact</h1>
 
 
 	<style>
@@ -21,38 +22,42 @@
 
 	{% for contact in contacts %}
 
-	<article style="width: 80%; height: 350px; margin: auto auto 30px auto; border: solid white 3px;">
+		<article style="width: 80%; height: 350px; margin: auto auto 30px auto; border: solid white 3px;">
 
-		<div class="contactformdiv">
-			<div style="display: flex;" class="contactformdiv">
-				<p class="contactp">Nom: {{ contact.nom }}</p>
-				<p class="contactp">Prénom: {{ contact.prenom }}</p>
+			<div class="contactformdiv">
+				<div style="display: flex;" class="contactformdiv">
+					<p class="contactp">Nom:
+						{{ contact.nom }}</p>
+					<p class="contactp">Prénom:
+						{{ contact.prenom }}</p>
+				</div>
+				<div style="display: flex;" class="contactformdiv">
+					<p class="contactp">Email:
+						{{ contact.email }}</p>
+					<p class="contactp">Numéro de téléphone:
+						{{ contact.telephone }}</p>
+				</div>
 			</div>
-			<div style="display: flex;" class="contactformdiv">
-				<p class="contactp">Email: {{ contact.email }}</p>
-				<p class="contactp">Numéro de téléphone: {{ contact.telephone }}</p>
+			<div class="contactformdiv" style="border: #ffc107 solid 1px; margin: 10px 10px 5px 10px; height: 35px;">
+				<p>Objet:
+					{{ contact.objet }}</p>
 			</div>
-		</div>
-		<div class="contactformdiv" style="border: #ffc107 solid 1px; margin: 10px 10px 5px 10px; height: 35px;">
-			<p>Objet: {{ contact.objet }}</p>
-		</div>
 
-		<div class="contactformdiv" style="border: #ffc107 solid 1px; margin: 10px; height: 35%;">
-			<p>Message:</p>
-			<p>{{ contact.message }}</p>
-		</div>
-		<div>
-			<form style="text-align: center;" method="post" action="{{ path('admin_contact_delete', {'id': contact.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contact.id) }}">
-				<button class="btn btn-warning">Delete</button>
-			</form>
-		</div>
-		
-		
+			<div class="contactformdiv" style="border: #ffc107 solid 1px; margin: 10px; height: 35%;">
+				<p>Message:</p>
+				<p>{{ contact.message }}</p>
+			</div>
+			<div>
+				<form style="text-align: center;" method="post" action="{{ path('admin_contact_delete', {'id': contact.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contact.id) }}">
+					<button class="btn btn-warning">Delete</button>
+				</form>
+			</div>
 
-	</article>
+
+		</article>
 
 	{% endfor %}
 
 
-	{% endblock %}
+{% endblock %}

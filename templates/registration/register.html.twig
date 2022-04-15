@@ -31,12 +31,14 @@
 		<p>{{ form_widget(registrationForm.username, {"attr":{'class':'form-control','placeholder':'Votre pseudo'}}) }}</p>
 
 		<p>{{ form_label(registrationForm.plainPassword, 'Mot de passe:') }}</p>
+		<td>{{ form_errors(registrationForm.plainPassword) }}</td>
 		<p>{{ form_widget(registrationForm.plainPassword, {"attr":{'class':'form-control','placeholder':'Votre mot de passe'}}) }}</p>
 
 
 		<button type="submit" class="btn btn-warning" style="margin:10px">S'inscrire</button>
         <br>
         {{ form_label(registrationForm.agreeTerms, 'Accepter') }}
+		{{ form_errors(registrationForm.agreeTerms) }}
 		{{ form_widget(registrationForm.agreeTerms) }}
 		{{ form_end(registrationForm) }}
 

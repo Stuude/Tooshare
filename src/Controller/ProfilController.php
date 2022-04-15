@@ -37,16 +37,6 @@ class ProfilController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            // $imgFile = $form->get('profile_picture')->getData();
-            //     if ($imgFile) {
-            //         $destination= $this->getParameter('uploads');
-            //         $newFilename = $fileUploader->upload($imgFile,$user,$destination,$slugger);
-            //         if ($newFilename != null) {
-            //             $user->setImage($newFilename);
-            //         }
-            //     }
-         
             // encode the plain password
             if ($userPasswordHasher->isPasswordValid($user, $form->get('plainPassword')->getData())) {
 
@@ -58,6 +48,7 @@ class ProfilController extends AbstractController
                         $user->setImage($newFilename);
                     }
                 }
+
                 if ($form->get('newPassword')->getData()) {
                     $user->setPassword(
                         $userPasswordHasher->hashPassword(

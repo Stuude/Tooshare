@@ -23,15 +23,10 @@
 
 	<div style="display: flex; text-align: center;">
 		<div style="background-color: #0e0e0e;">
-			<p style="margin-top: 100px; color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-				labore hic in
-				ipsum quia libero, totam, ad
-				debitis error commodi necessitatibus inventore iusto illo voluptatem odit repellendus. Ducimus, quisquam
-				magnam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nesciunt, labore tempore
-				recusandae placeat amet praesentium, magnam sequi in beatae dolorem fuga dolore laborum ut aspernatur,
-				vero velit debitis adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore
-				rerum cum aspernatur quis consequatur corporis in harum, dolor molestiae repellat animi minus atque.
-				Laudantium unde officia harum doloremque repellendus.</p>
+			<p style="margin-top: 100px; color: white;">Tooshare est un site qui à pour but d'aider les artistes qui
+				viennent de commencer leur future carrière. Il permet aux jeunes artistes de commencer avec une
+				visibilité qui est toujours mieux que rien. Chaque personne voulant apparaître en tant qu'artiste devra
+				envoyer leur demande via le formulaire de contact disponible dans le menu au dessus du site.</p>
 		</div>
 
 		<div id="homediscoverphoto" style="background-color: #0e0e0e;">
@@ -50,10 +45,11 @@
 			style="width: 18rem; height: 100%; margin-top: 10px; margin-bottom: 10px;">
 			<div>
 				<img style="height: 300px; width: 100%;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top"
-					alt="...">
+					alt="Aristeimg">
 			</div>
-			<div class="" style="text-align: center;">
+			<div style="text-align: center;">
 				<h5 class="card-title" style="padding: 10px;">
+					{{ artiste.prenom }}
 					{{ artiste.nom }}</h5>
 				<p>{{ artiste.genre }}</p>
 				<a class="btn btn-warning text-light" style="margin-bottom: 10px;"
@@ -65,12 +61,12 @@
 
 	<div style="width: 30%; text-align: center; margin-top: 10px; color: white;">
 		<h2 style="margin-top: 50px;">Les nouveautés</h2>
-		<p style="margin-top: 75px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque facere rerum et minus quae laborum assumenda
-			nostrum doloremque amet explicabo delectus consequatur illum a, numquam labore nesciunt maxime eaque! Iusto!
+		<p style="margin-top: 75px;">Comme précédemment dit TooShare est un site qui aide les nouveaux artistes qui veulent
+			se lancer dans la musique pour qu'ils aient un minimum de visibilté.
 		</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error iure mollitia neque, asperiores deleniti nisi
-			totam tempora sequi saepe? Repudiandae consectetur distinctio animi aut inventore, ex vitae ab minus
-			accusamus!</p>
+		<p>C'est pour cela que dès la page d'accueil (ou tu es actuellement) tu peux voir les derniers artistes qui ont été
+			enregistrer sur le site! 
+		</p>
 	</div>
 </section>
 

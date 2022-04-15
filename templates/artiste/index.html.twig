@@ -1,4 +1,6 @@
 {% extends 'base.html.twig' %}
+{% block title %}Liste des artistes
+{% endblock %}
 
 
 {% block body %}
@@ -17,13 +19,16 @@
 							</div>
 							<div class="card-body " style="text-align: center; background-color: #fabd18;">
 								<h5 class="card-title" style="padding: 10px;">
+									{{ artiste.prenom }}
 									{{ artiste.nom }}</h5>
 								<p>{{ artiste.genre }}</p>
 								<a class="btn btn-warning text-light" style="margin-bottom: 10px; background-color:#FF9700;" href="{{ path('artiste_show', {'id': artiste.id}) }}">Découvrir</a>
 							</div>
 						</div>
 					</div>
+	{% else %}
 
+	<p style="text-align:center;"> Il y a aucun artiste enregistré sur le site</p>
 
 				{% endfor %}
 			</div>

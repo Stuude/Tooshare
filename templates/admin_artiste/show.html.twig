@@ -4,15 +4,15 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Artiste</h1>
+	<h2 class="text-center">Artiste</h2>
 
 	<section style="background-color: #0e0e0e; color: white;">
 
 
 		<section style="margin: 20px;">
 			<div style="text-align:center; border:black 1px solid;">
-				<h2>{{ artiste.nom }}
-					{{ artiste.prenom }}</h2>
+				<h2>{{ artiste.prenom }}
+					{{ artiste.nom }}</h2>
 
 				<div>
 					<img style="height: auto; width: 200px;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top" alt="...">
