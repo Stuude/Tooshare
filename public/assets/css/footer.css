@@ -1,21 +1,21 @@
-body{
+body {
     background-color: #0e0e0e;
     color: white;
 }
+
 /* FOOTER */
 
 footer {
     padding-top: 50px;
     background-color: #0e0e0e;
     color: white;
-
-    width:100%;
-    
-
+    width: 100%;
 }
 
 #frstfooterblock {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .footertitle {
@@ -65,14 +65,24 @@ footer hr {
     font-size: 20px;
 }
 
+
 .navbtn:hover {
     border-bottom: solid white 1px;
     color: white;
 
 }
 
+#connectbtn {
+    display: flex;
+}
+
 .btnjaune {
     border-radius: 30px;
+}
+
+#btnconnect {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
@@ -150,4 +160,259 @@ h1 {
 #news {
     display: flex;
     justify-content: space-evenly;
+}
+
+#mdr {
+    color: yellow;
+}
+
+/* Page artiste */
+
+#artistblocard{
+    color: #0e0e0e;
+    width: 33%;
+}
+
+
+/* Page artiste show */
+
+#commentblock{
+    width: 100%; 
+    height: 60%; 
+    margin-top: 5px; 
+    padding: 5px; 
+    background-color: #ffd148;
+
+}
+
+
+
+/* AdminArtiste */
+
+#blockcivil {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#inputdescection {
+    height: 200px;
+}
+
+#descinputp {
+    height: 145px;
+    padding: 5px;
+}
+
+#newartistarticle{
+    width: 50%;
+    height:600px; 
+    margin:auto;
+}
+
+/* Page profil */
+
+#profilebloc {
+    height: 550px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#divprofile {
+    border: white 1px dashed;
+    height: 550px;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.formleft{
+    text-align: left;   
+}
+
+.updateInput{
+    width:100%;
+}
+
+/* Profil commentaire */
+
+#commentarticle{
+    display: flex; 
+    background-color: #FFE083; 
+    margin:15px 10px 10px 10px; 
+    width:50%; 
+    margin: 15px auto;
+}
+
+#editdelete{
+    padding: 5px;
+    background-color: #FFD559; 
+    border: solid white 1px; 
+    width: 150px; 
+    height: 150px;
+}
+#editdeltein{
+    text-align: center; 
+    margin-top: 30px;
+}
+
+#editbtn{
+    width: 70px; 
+    margin-bottom: 5px;
+}
+
+#blocomment{
+    width: 100%; 
+    margin: 5px;
+}
+
+#commentime{
+    display: flex; 
+    justify-content: space-between; 
+    padding: 5px; 
+    background-color: #ffc107;
+}
+
+#commentmsg{
+    width: 100%; 
+    height: 60%; 
+    margin-top: 5px; 
+    padding: 5px; 
+    background-color: #ffd148;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /* NAV RESPONSIVE */
+
+    .navbtn {
+        color: white;
+        width: 50%;
+    }
+
+    #navtest {
+        width: 100%;
+    }
+
+    #connectbtn {
+        display: block;
+    }
+
+    .btnjaune {
+        width: 50%;
+        margin: 5px;
+    }
+
+    #btnconnect {
+        display: block;
+    }
+
+    /* HOME RESPONSIVE */
+
+    #homesection,
+    #imgdiscover {
+        display: none;
+    }
+
+    #txtnews {
+        display: none;
+    }
+
+    #news {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
+    #blocnews {
+        margin: auto;
+    }
+
+    /* FOOTER RESPONSIVE */
+
+    #frstfooterblock {
+        display: block;
+        text-align: center;
+    }
+
+    /* Page artiste */
+
+    .artistcard {
+        margin: auto;
+    }
+    #artistblocard{
+        color: #0e0e0e;
+        width: 100%;
+    }
+
+    /* Page artiste show */
+
+    #commentblock{
+        height: 45%; 
+    }
+
+    /* Page ADMIN artiste */
+
+    #blockcivil {
+        display: block;
+    }
+
+    #newartistarticle{
+        width: 90%;
+        text-align: center;
+    }
+
+    /* Footer */
+
+    footer {
+        /* position: relative;
+        bottom: 0%; */
+        margin-top: 10px;
+    }
+
+    /* ArtistForm */
+
+    #inputdescection {
+        height: 100px;
+    }
+
+    #descinputp {
+        height: 50px;
+    }
+
+    /* Profil */
+
+    #divprofile {
+        width: 275px;
+    }
+
+    #editdelete{
+        height: 200px;
+    }
+
+    #commentarticle{
+        margin: 15px auto;
+        width: 90%;
+    }
+
+    #editdeltein{
+        margin-top: 60px;
+    }
+
+    .updateInput{
+        width:90%;
+    }
+
+    
+
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    #artistblocard{
+        color: #0e0e0e;
+        width: 100%;
+    }
 }

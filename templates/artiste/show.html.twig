@@ -19,7 +19,10 @@
 
 				<p>DESCRIPTION:</p>
 				<p>{{ artiste.description }}</p>
+
+				</pre>
 			</div>
+
 
 		</section>
 
@@ -28,32 +31,39 @@
 
 			{% if app.user %}
 				{% include "comment/_form.html.twig" %}
+
+
+				{% for commentaire in artiste.comments %}
+					<article style="display: flex; margin-top: 15px; background-color: #FFE083;">
+
+						<div style="padding: 5px; background-color: #FFD559;">
+							<img style="height:150px; width:150; background-color: white;" src="{{asset('upload/'~app.user.profilePicture)}}">
+						</div>
+
+						<div style="width: 100%; margin: 5px;">
+							<div style="display: flex; justify-content: space-between; padding: 5px; background-color: #ffc107;">
+								<p>Posté par:
+									{{ commentaire.pseudo.username }}</p>
+								<p>Le
+									{{ commentaire.createdAt|date("d/m/Y")}}</p>
+							</div>
+
+							<div id="commentblock" style="">
+								<p>
+									{{ commentaire.commentaire }}</p>
+							</div>
+						</div>
+
+					</article>
+
+				{% endfor %}
+
+
+				{% else %}
+					<p>Veuillez vous <a href="{{ path('app_login') }}">connecter</a> pour accéder aux commentaires de la page</p>
+
 			{% endif %}
 
-			{% for commentaire in artiste.comments %}
-				<article style="display: flex; margin-top: 15px; background-color: #FFE083;">
-
-					<div style="padding: 5px; background-color: #FFD559;">
-						<img style="height:150px; width:150; background-color: white;" src="{{asset('upload/'~app.user.profilePicture)}}">
-					</div>
-
-					<div style="width: 100%; margin: 5px;">
-						<div style="display: flex; justify-content: space-between; padding: 5px; background-color: #ffc107;">
-							<p>Posté par:
-								{{ commentaire.pseudo.username }}</p>
-							<p>Le
-								{{ commentaire.createdAt|date("d/m/Y")}}</p>
-						</div>
-
-						<div style=" width: 100%; height: 60%; margin-top: 5px; padding: 5px; background-color: #ffd148;">
-							<p>
-								{{ commentaire.commentaire }}</p>
-						</div>
-					</div>
-
-				</article>
-
-			{% endfor %}
 
 		</section>
 	</section>

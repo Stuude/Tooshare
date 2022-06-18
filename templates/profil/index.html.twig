@@ -7,7 +7,7 @@
 
 <style>
 
-	#profilebloc {
+	{# #profilebloc {
 		height: 550px;
 		width: 100%;
 		margin-top: 10px;
@@ -19,7 +19,7 @@
 		width: 500px;
 		margin: auto;	
 		text-align: center;
-	}
+	} #}
 </style>
 
 
@@ -55,14 +55,14 @@
 </section>
 
 
-<p>Vos commentaires: </p>
+<p style="text-align:center;">Vos commentaires: </p>
 
 {% for comment in app.user.comments %}
-<article style="display: flex; margin-top: 15px; background-color: #FFE083;">
+<article id="commentarticle" style="" >
 
-	<div style="padding: 5px; background-color: #FFD559; border: solid white 1px; width: 150px; height: 150px;">
-		<div class="" style="text-align: center; margin-top: 30px;">
-			<a class="btn btn-dark" style="width: 70px; margin-bottom: 5px;" href="{{ path('comment_edit',{"id":comment.id}) }}">Edit</a>
+	<div id="editdelete" style="">
+		<div id="editdeltein" style="">
+			<a class="btn btn-dark" id="editbtn"style="" href="{{ path('comment_edit',{"id":comment.id}) }}">Edit</a>
 			<form method="post" action="{{ path('comment_delete', {'id': comment.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
 				<input type="hidden" style="width: 60px;"  name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
 				<button class="btn btn-dark">Delete</button>
@@ -70,14 +70,13 @@
 		</div>
 	</div>
 
-	<div style="width: 100%; margin: 5px;">
-		<div
-			style="display: flex; justify-content: space-between; padding: 5px; background-color: #ffc107;">
-			<p>Le commentaire a été posté dans la page de: {{ comment.artiste.nom }} </p>
+	<div id="blocomment" style="">
+		<div id="commentime" style="">
+			<p>Posté dans la page de: {{ comment.artiste.prenom }} {{ comment.artiste.nom }}  </p>
 			<p>Le {{ comment.createdAt|date("d/m/Y")}}</p>
 		</div>
 
-		<div style=" width: 100%; height: 60%; margin-top: 5px; padding: 5px; background-color: #ffd148;">
+		<div id="commentmsg" style=" ">
 			<p>{{ comment.commentaire }}</p>
 		</div>
 	</div>

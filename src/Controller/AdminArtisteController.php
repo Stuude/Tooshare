@@ -36,7 +36,7 @@ class AdminArtisteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $imgFile = $form->get('image')->getData();
+            $imgFile = $form->get('image'   )->getData();
             if($imgFile) {
                 // le getParameter est une méthode de controlleur
                 $destination= $this->getParameter('uploads');
@@ -44,6 +44,8 @@ class AdminArtisteController extends AbstractController
                 $fileUploader->upload($imgFile,$artiste,$destination,$slugger);
 
             }
+
+            
             $this->addFlash(
                 'success',
                 'Votre article a bien été ajouté',       

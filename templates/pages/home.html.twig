@@ -4,80 +4,68 @@
 {% block body %}
 
 
-<section id="homesection">
+	<section id="homesection">
 
-	<div id="titlediv">
+		<div id="titlediv">
 
-		<h1>T<span id="doubleo">OO</span>SHARE</h1>
+			<h1>T<span id="doubleo">OO</span>SHARE</h1>
 
-	</div>
-
-</section>
-
-<section id="homediscover">
-
-	<div id="homediscovertitle">
-		<h2 id="discovertitle">Découvre de nouveaux artistes!</h2>
-		<hr id="hrtest">
-	</div>
-
-	<div style="display: flex; text-align: center;">
-		<div style="background-color: #0e0e0e;">
-			<p style="margin-top: 100px; color: white;">Tooshare est un site qui à pour but d'aider les artistes qui
-				viennent de commencer leur future carrière. Il permet aux jeunes artistes de commencer avec une
-				visibilité qui est toujours mieux que rien. Chaque personne voulant apparaître en tant qu'artiste devra
-				envoyer leur demande via le formulaire de contact disponible dans le menu au dessus du site.</p>
 		</div>
 
-		<div id="homediscoverphoto" style="background-color: #0e0e0e;">
-			<img src="{{asset('img/'~'imgHeader.png')}}">
+	</section>
+
+	<section id="homediscover">
+
+		<div id="homediscovertitle">
+			<h2 id="discovertitle">Découvre de nouveaux artistes!</h2>
+			<hr id="hrtest">
 		</div>
-	</div>
-</section>
 
-<section id="news" style="background-color: #0e0e0e; width: 100%;">
-
-
-	{% for artiste in artistes %}
-
-	<div class="text-light">
-		<div class="width:300px; height:200px; border border-dark"
-			style="width: 18rem; height: 100%; margin-top: 10px; margin-bottom: 10px;">
-			<div>
-				<img style="height: 300px; width: 100%;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top"
-					alt="Aristeimg">
+		<div style="display: flex; text-align: center;">
+			<div style="background-color: #0e0e0e; margin:auto;">
+				<p style="color: white; width:70%; margin:auto;">Tooshare est un site qui à pour but d'aider les artistes qui
+									viennent de commencer leur future carrière. Il permet aux jeunes artistes de commencer avec une
+									visibilité qui est toujours mieux que rien. Chaque personne voulant apparaître en tant qu'artiste devra
+									envoyer leur demande via le formulaire de contact disponible dans le menu au dessus du site.</p>
 			</div>
-			<div style="text-align: center;">
-				<h5 class="card-title" style="padding: 10px;">
-					{{ artiste.prenom }}
-					{{ artiste.nom }}</h5>
-				<p>{{ artiste.genre }}</p>
-				<a class="btn btn-warning text-light" style="margin-bottom: 10px;"
-					href="{{ path('artiste_show', {'id': artiste.id}) }}">Découvrir</a>
+
+			<div id="homediscoverphoto" style="background-color: #0e0e0e;">
+				<img id="imgdiscover" src="{{asset('img/'~'imgHeader.png')}}">
 			</div>
 		</div>
-	</div>
-	{% endfor %}
+	</section>
 
-	<div style="width: 30%; text-align: center; margin-top: 10px; color: white;">
-		<h2 style="margin-top: 50px;">Les nouveautés</h2>
-		<p style="margin-top: 75px;">Comme précédemment dit TooShare est un site qui aide les nouveaux artistes qui veulent
-			se lancer dans la musique pour qu'ils aient un minimum de visibilté.
-		</p>
-		<p>C'est pour cela que dès la page d'accueil (ou tu es actuellement) tu peux voir les derniers artistes qui ont été
-			enregistrer sur le site! 
-		</p>
-	</div>
-</section>
+	<section id="news" style="background-color: #0e0e0e; width: 100%;">
 
 
+		{% for artiste in artistes %}
 
+			<div class="text-light" id="blocnews">
+				<div class="width:300px; height:200px; border border-dark" style="width: 18rem; height: 100%; margin-top: 10px; margin-bottom: 10px;" id="blocnews">
+					<div>
+						<img style="height: 300px; width: 100%;" src="{{ asset('upload/'~artiste.image) }}" class="card-img-top" alt="Aristeimg">
+					</div>
+					<div style="text-align: center;">
+						<h5 class="card-title" style="padding: 10px;">
+							{{ artiste.prenom }}
+							{{ artiste.nom }}</h5>
+						<p>{{ artiste.genre }}</p>
+						<a class="btn btn-warning text-light" style="margin-bottom: 10px;" href="{{ path('artiste_show', {'id': artiste.id}) }}">Découvrir</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
 
-
-
-
-
-
+		<div style="width: 30%; text-align: center; margin-top: 10px; color: white;" id="txtnews">
+			<h2 style="margin-top: 50px;">Les nouveautés</h2>
+			<p style="margin-top: 75px;">Comme précédemment dit TooShare est un site qui aide les nouveaux artistes qui veulent
+							se lancer dans la musique pour qu'ils aient un minimum de visibilté.
+			</p>
+			<p>C'est pour cela que dès la page d'accueil (ou tu es actuellement) tu peux voir les derniers artistes qui ont été
+							enregistrer sur le site!
+			</p>
+		</div>
+	</section>
 
 
 

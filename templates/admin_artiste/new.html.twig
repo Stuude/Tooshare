@@ -26,19 +26,21 @@
 
 
 	{{ form_start(form) }}
-	<article style="width: 50%; height:600px; margin:auto;" class="borderform">
+	<article style="" id="newartistarticle" class="borderform">
 		<section class="borderform">
 			<div style="text-align:center;  padding:10px 0px">
 
 				<img style="height: auto; width: 200px;" src="{{asset('img/'~'200x200.gif')}}" class="card-img-top" alt="...">
 				<br>
 				<hr>
+				{{ form_label(form.image, 'Image:') }}
 				{{ form_widget(form.image) }}
+
 			</div>
 		</section>
 
 		<section class="borderform">
-			<div class="d-flex justify-content-evenly" style="padding-top:10px;">
+			<div class="" id="blockcivil" style="padding-top:10px;">
 				<p>{{ form_label(form.nom, 'Nom:') }}
 					{{ form_widget(form.nom) }}</p>
 				<p>{{ form_label(form.prenom, 'Prénom:') }}
@@ -46,12 +48,12 @@
 				<p>{{ form_label(form.genre, 'Genre:') }}
 					{{ form_widget(form.genre) }}</p>
 			</div>
-		</sectionclass="borderform">
+		</section class="borderform">
 
-		<section style="height:200px;" class="borderform">
+		<section style="" class="borderform" id="inputdescection">
 			<div style="text-align:center;  height:100%;">
 				<p>{{ form_label(form.description, 'Description:') }}</p>
-				<p style="height:145px; padding:5px;">{{ form_widget(form.description, {"attr":{'class':'descInput'}}) }}</p>
+				<p style="" id="descinputp">{{ form_widget(form.description, {"attr":{'class':'descInput'}}) }}</p>
 			</div>
 		</section>
 

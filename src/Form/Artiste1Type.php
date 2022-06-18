@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints\File;
 
 class Artiste1Type extends AbstractType
 {
@@ -38,7 +39,22 @@ class Artiste1Type extends AbstractType
                 'mapped' => false,
                 'required' => false
 
-            ]);
+
+            ])
+            // ->add('audio', FileType::class, [
+            //     'constraints' => [
+            //         new File([
+            //             'maxSize' => '256M',
+            //             'mimeTypes' => [
+            //                 'application/octet-stream',
+            //                 'audio/mpeg',
+            //                 'audio/mp3'
+            //             ]
+            //         ])
+            //     ]
+
+            // ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

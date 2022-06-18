@@ -27,6 +27,9 @@ class Artiste
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $audio;
+
     #[ORM\OneToMany(mappedBy: 'artiste', targetEntity: Comment::class, orphanRemoval: true)]
     private $comments;
 
@@ -90,6 +93,7 @@ class Artiste
 
         return $this;
     }
+    
 
     /**
      * @return Collection|Comment[]
@@ -131,5 +135,25 @@ class Artiste
         $this->genre = $genre;
 
         return $this;
+    }
+
+    /**
+     * Set the value of audio
+     *
+     * @return  self
+     */ 
+    public function setAudio($audio)
+    {
+        $this->audio = $audio;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of audio
+     */ 
+    public function getAudio()
+    {
+        return $this->audio;
     }
 }
