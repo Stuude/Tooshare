@@ -37,7 +37,7 @@
 
 		<button type="submit" class="btn btn-warning" style="margin:10px">S'inscrire</button>
         <br>
-        {{ form_label(registrationForm.agreeTerms, 'Accepter') }}
+        {{ form_label(registrationForm.agreeTerms, 'Accepter les') }} <a href="{{ path('app_cgu') }}">Conditions générales d'utilisations</a>
 		{{ form_errors(registrationForm.agreeTerms) }}
 		{{ form_widget(registrationForm.agreeTerms) }}
 		{{ form_end(registrationForm) }}
