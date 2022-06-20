@@ -181,7 +181,7 @@ h1 {
     height: 60%; 
     margin-top: 5px; 
     padding: 5px; 
-    background-color: #ffd148;
+    background-color: #191716;
 
 }
 
@@ -237,7 +237,7 @@ h1 {
 
 #commentarticle{
     display: flex; 
-    background-color: #FFE083; 
+    background-color: black; 
     margin:15px 10px 10px 10px; 
     width:50%; 
     margin: 15px auto;
@@ -245,7 +245,7 @@ h1 {
 
 #editdelete{
     padding: 5px;
-    background-color: #FFD559; 
+    background-color: #191716; 
     border: solid white 1px; 
     width: 150px; 
     height: 150px;
@@ -269,7 +269,7 @@ h1 {
     display: flex; 
     justify-content: space-between; 
     padding: 5px; 
-    background-color: #ffc107;
+    background-color: #191716;
 }
 
 #commentmsg{
@@ -277,7 +277,7 @@ h1 {
     height: 60%; 
     margin-top: 5px; 
     padding: 5px; 
-    background-color: #ffd148;
+    background-color: #191716;
 }
 
 

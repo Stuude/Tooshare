@@ -34,14 +34,14 @@
 
 
 				{% for commentaire in artiste.comments %}
-					<article style="display: flex; margin-top: 15px; background-color: #FFE083;">
+					<article style="display: flex; margin-top: 15px; background-color: black;">
 
-						<div style="padding: 5px; background-color: #FFD559;">
+						<div style="padding: 5px; background-color: black;">
 							<img style="height:150px; width:150; background-color: white;" src="{{asset('upload/'~app.user.profilePicture)}}">
 						</div>
 
 						<div style="width: 100%; margin: 5px;">
-							<div style="display: flex; justify-content: space-between; padding: 5px; background-color: #ffc107;">
+							<div style="display: flex; justify-content: space-between; padding: 5px; background-color: #191716;">
 								<p>Posté par:
 									{{ commentaire.pseudo.username }}</p>
 								<p>Le
