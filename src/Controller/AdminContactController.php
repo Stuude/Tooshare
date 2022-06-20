@@ -38,6 +38,7 @@ class AdminContactController extends AbstractController
     public function delete(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
+             // entity manager qui sert a manipuler les données de la base de données
             $entityManager->remove($contact);
             $entityManager->flush();
         }

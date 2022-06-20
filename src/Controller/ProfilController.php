@@ -32,23 +32,28 @@ class ProfilController extends AbstractController
 
     public function index(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, FileUploader $fileUploader, SluggerInterface $slugger): Response
     {
+        // on récupere le user
         $user = $this->getUser();
+        // on créer le formulaire pour la modification du profil
         $form = $this->createForm(ProfilType::class, $user);
+        // on gère la requete
         $form->handleRequest($request);
-
+        // boucle if si le form est valide
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             if ($userPasswordHasher->isPasswordValid($user, $form->get('plainPassword')->getData())) {
-
+                // on récupere les données de l'ancienne photo de profil
                 $imgFile = $form->get('profile_picture')->getData();
                 if ($imgFile) {
                     $destination= $this->getParameter('uploads');
+                    // variable newfilename pour la rechanger si besoin
                     $newFilename = $fileUploader->upload($imgFile,$user,$destination,$slugger);
                     if ($newFilename != null) {
+                        // le setImage pour l'image
                         $user->setImage($newFilename);
                     }
                 }
-
+                // 
                 if ($form->get('newPassword')->getData()) {
                     $user->setPassword(
                         $userPasswordHasher->hashPassword(
@@ -56,6 +61,7 @@ class ProfilController extends AbstractController
                             $form->get('newPassword')->getData()
                         )
                     );
+                    // addflash qui nous sert a faire une intervention front sympa
                     $this->addFlash(
                         'success',
                         'Vos changements ont bien été pris en compte',       
@@ -63,15 +69,17 @@ class ProfilController extends AbstractController
                 }
             }
             else{
+                // addflash qui nous sert a faire une intervention front sympa
                 $this->addFlash(
                     'error',
                     'Vos changements n\'ont pas été pris en compte car le mot de passe est incorrect',
     
                 );
             }
+            // entity manager qui sert a manipuler les données de la base de donnée
             $entityManager->persist($user);
             $entityManager->flush();
-
+            // on redirige directement vers le profil
             return $this->redirectToRoute('profil');
         }
 

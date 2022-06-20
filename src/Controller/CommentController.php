@@ -16,35 +16,32 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/comment')]
 class CommentController extends AbstractController
 {
-    #[Route('/', name: 'comment_index', methods: ['GET'])]
-    public function index(CommentRepository $commentRepository): Response
-    {
-        return $this->render('comment/index.html.twig', [
-            'comments' => $commentRepository->findAll(),
-            
-        ]);
-    }
 
     #[Route('/new/{id}', name: 'comment_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, Artiste $artiste): Response
     {
+
+        // NOUVEL OBJET COMMENTAIRE
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // addflash qui nous sert a faire une intervention front sympa
             $this->addFlash(
                 'success',
                 'Votre commentaire a bien été ajouté',       
             );
-            
+            // on récupere les données du formulaire commentaire
             $comment = $form->getData();
-        
+            // on ajoute une méthode setCreateAt pour avoir la date du commentaire
             $comment->setCreatedAt(new DateTime());
-            
+            // ON récuprere le pseudo du user 
             $comment->setPseudo($this->getUser());
 
             $comment->setArtiste($artiste);
+
+            // entity manager qui sert a manipuler les données de la base de données
             $entityManager->persist($comment);
             $entityManager->flush();
 
@@ -65,11 +62,15 @@ class CommentController extends AbstractController
     #[Route('/{id}/edit', name: 'comment_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
     {
+        // on recréer le form pour l'edit du commentaire
         $form = $this->createForm(CommentType::class, $comment);
+        // on gere la requete
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->flush();
+            // addflash qui nous sert a faire une intervention front sympa
             $this->addFlash(
                 'success',
                 'Vos changements ont bien été pris en compte',       
@@ -88,6 +89,7 @@ class CommentController extends AbstractController
     public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+            // addflash qui nous sert a faire une intervention front sympa
             $this->addFlash(
                 'success',
                 'Votre commentaire a bien été supprimé',       

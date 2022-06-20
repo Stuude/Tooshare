@@ -16,22 +16,25 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
+        // création d'un objet user
         $user = new User();
+        // on appel le registration form pour la création du user
         $form = $this->createForm(RegistrationFormType::class, $user);
+        // on gère la requete
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // encode the plain password // le hash password pour pas qu'on voit le password de l'utilsiateur
             $user->setPassword(
             $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            // entity manager qui sert a manipuler les données de la base de donnée
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+
 
             return $this->redirectToRoute('home');
         }

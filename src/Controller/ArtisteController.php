@@ -20,6 +20,7 @@ class ArtisteController extends AbstractController
     {
         return $this->render('artiste/index.html.twig', [
             'controller_name' => 'ArtisteController',
+            // Le findAll qui est une fonction du reponsitory qui nous sert a récupérer tous les artistes
             'artistes' => $artisteRepository->findAll()
         ]);
     }
@@ -28,7 +29,9 @@ class ArtisteController extends AbstractController
 
     public function show(Artiste $artiste): Response
     {
+        // nouvel objet Commentaire pour l'ajout d'un commentaire
         $comment = new Comment();
+        // Création du formCommentaire
         $form = $this->createForm(CommentType::class, $comment);
 
         return $this->render('artiste/show.html.twig', [

@@ -24,12 +24,12 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-
+            // addflash qui nous sert a faire une intervention front sympa
             $this->addFlash(
                 'success',
                 'Votre formulaire de contact a bien été envoyé',       
             );
-
+            // entity manager qui sert a manipuler les données de la base de donnée
             $entityManager->persist($contact);
             $entityManager->flush();
 

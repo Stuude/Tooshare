@@ -40,11 +40,15 @@ class ResetPasswordController extends AbstractController
     #[Route('', name: 'app_forgot_password_request')]
     public function request(Request $request, MailerInterface $mailer, TranslatorInterface $translator): Response
     {
+        // on recréer le formulaire pour bien sur reset le password
         $form = $this->createForm(ResetPasswordRequestFormType::class);
+        // on gere la requete
         $form->handleRequest($request);
 
+        // boucle if si le form est validé
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->processSendingPasswordResetEmail(
+                // on récupere l'email
                 $form->get('email')->getData(),
                 $mailer,
                 $translator
